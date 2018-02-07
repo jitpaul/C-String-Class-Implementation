@@ -1,2 +1,2 @@
-# C-String-Class-Implementation
+# CPP-String-Class-Implementation
 A simple implementation of the C++ String Class
