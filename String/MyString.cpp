@@ -1,21 +1,13 @@
-#include <iostream>
-#include <cstring>
+#include "MyString.h"
 
-using namespace std;
-
-/*String Class*/
-class String {
-	char* str;
-
- public:
 
 	/* Default Constructor */
-	String() {}
+	 MyString::MyString() {}
 
 
 
 	/* Parameterized Constructor */
-	String(char* newStr){
+	MyString::MyString(char* newStr){
 		str = new char[int(strlen(newStr))+1];
 		memcpy(str, newStr, int(strlen(newStr)) + 1);
 	}
@@ -23,7 +15,7 @@ class String {
 
 
 	/* Custom Copy Constructor */
-	String(const String& old) {
+	MyString::MyString(const MyString& old) {
 		str = new char[int(strlen(old.str)) + 1];
 		memcpy(str, old.str, int(strlen(old.str)) + 1);
 	}
@@ -31,7 +23,7 @@ class String {
 
 
 	/* Custom Assignment Operator */
-	String& operator= (const String& rightStr) {
+	MyString&  MyString::operator= (const MyString& rightStr) {
 		delete[] str;
 		str = new char[int(strlen(rightStr.str))+1];
 		memcpy(str, rightStr.str, int(strlen(rightStr.str)) + 1);
@@ -41,13 +33,13 @@ class String {
 
 
 	/* Overload the random access operator*/
-	char& operator[](int index) {
+	char&  MyString::operator[](int index) {
 		return str[index];
 	}
 
 
 	/* Overload the '+' operator for concatenation of strings*/
-	String& operator+(const String& rightStr) {
+	MyString&  MyString::operator+(const MyString& rightStr) {
 		char *temp = str;
 		str = new char[int(strlen(temp)) + int(strlen(rightStr.str)) + 1];
 		int i,j=0;
@@ -62,41 +54,19 @@ class String {
 
 
 	/* Returns the size of the string*/
-	int size() {
+	int  MyString::size() {
 		return strlen(str);
 	}
 
 
 	/* Overload the ostream operator as a friend function.*/
-	friend ostream& operator<< (ostream &out, const String &st){
+	std::ostream&  operator<< (std::ostream &out, const MyString &st){
 		out << st.str;
 		return out;
 	}
 
 
-	/* Overload the istream operator as a friend function.*/
-	//friend istream& operator>>(istream &in, String &st) {
-		//char* temp = new char[0];
-		//in >> temp;
-		//return in;
-	//}
-
-
-
 	/* Destructor*/
-	~String(){
+	MyString::~MyString(){
 		delete[] str;
 	}
-
-};
-
-
-/* Main Function*/
-int main() {
-
-	String a = "Hello";
-	String b;
-	b = "how";
-	cin.get();
-	return 0;
-}
