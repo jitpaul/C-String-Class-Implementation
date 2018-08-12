@@ -3,7 +3,6 @@
 
 /*MyString Class*/
 class MyString {
-	char* str;
 
 public:
 
@@ -20,18 +19,23 @@ public:
 	MyString& operator= (const MyString&);
 
 	/* Overload the random access operator*/
-	char& operator[](int);
+	char& operator[](int) const;
 
 	/* Overload the '+' operator for concatenation of strings*/
 	MyString& operator+(const MyString&);
 
 	/* Returns the size of the string*/
-	int size();
+	int size() const;
 
 	/* Overload the ostream operator as a friend function.*/
 	friend std::ostream& operator<< (std::ostream &, const MyString &);
 
 	/* Destructor*/
 	~MyString();
+
+private:
+        char* str;
+        enum {MAX_SIZE = 1024};
+        
 
 };
