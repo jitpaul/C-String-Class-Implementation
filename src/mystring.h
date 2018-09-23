@@ -1,5 +1,9 @@
-#pragma once
+#ifndef INCLUDED_MYSTRING_H
+#define INCLUDED_MYSTRING_H
+#endif
+
 #include <iostream>
+#include <cstring>
 
 /*MyString Class*/
 class MyString {
@@ -9,8 +13,10 @@ public:
 	/* Default Constructor */
 	MyString();
 
+    static const size_t MAX_SIZE = 1024;
+
 	/* Parameterized Constructor */
-	MyString(char*);
+	MyString(const char*);
 
 	/* Custom Copy Constructor */
 	MyString(const MyString&);
@@ -30,12 +36,12 @@ public:
 	/* Overload the ostream operator as a friend function.*/
 	friend std::ostream& operator<< (std::ostream &, const MyString &);
 
+    /* Overload the istream operator as a friend function.*/
+	friend std::istream& operator>> (std::istream &, MyString &);
+
 	/* Destructor*/
 	~MyString();
 
 private:
         char* str;
-        enum {MAX_SIZE = 1024};
-        
-
 };
