@@ -1,19 +1,48 @@
 {
-    // See https://go.microsoft.com/fwlink/?LinkId=733558
-    // for the documentation about the tasks.json format
     "version": "2.0.0",
+    "windows": {
+        "options": {
+            "shell": {
+                "executable": "C:\\WINDOWS\\System32\\wsl.exe",
+            }
+        }
+    },
     "tasks": [
         {
-            "label": "build MyString",
-            "type": "shell",
-            "command": "g++",
-            "args": [
-                "src/*.cpp"
+            "label": "Build",
+			"dependsOn": [
+				"Create Make",
+				"Run Make"
             ],
             "group": {
                 "kind": "build",
                 "isDefault": true
-            }
+            },
+			"problemMatcher": "$gcc"
+        },
+        {
+            "label": "Create Make",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}/build"
+            },
+            "command": "cmake",
+            "args": [
+                "-G",
+                "\"Unix Makefiles\"",
+                "-DCMAKE_BUILD_TYPE=Debug",
+                "..",
+            ],
+            "problemMatcher": "$gcc"
+        },
+        {
+            "label": "Run Make",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}/build"
+            },
+            "command": "make",
+            "problemMatcher": "$gcc"
         }
     ]
 }

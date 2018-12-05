@@ -1,7 +1,7 @@
 #include <iostream>
 #include "mystring.h"
 
-int main(){
-    std::cin.get();
+int main(){ 
+    std::cout<<"Hello\n";
     return 0;
 }
