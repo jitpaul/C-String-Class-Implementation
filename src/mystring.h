@@ -5,6 +5,8 @@
 #include <iostream>
 #include <cstring>
 
+namespace mystr{
+
 /*MyString Class*/
 class MyString {
 
@@ -44,4 +46,6 @@ public:
 
 private:
         char* str;
+};
+
 };

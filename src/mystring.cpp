@@ -1,5 +1,7 @@
 #include "MyString.h"
 
+namespace mystr{
+	
 	/* Default Constructor */
 	 MyString::MyString() {}
 
@@ -66,3 +68,4 @@
 	MyString::~MyString(){
 		delete[] str;
 	}
+};
