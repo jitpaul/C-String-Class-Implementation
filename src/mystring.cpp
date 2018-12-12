@@ -1,6 +1,6 @@
-#include "MyString.h"
+#include <mystring.h>
 
-namespace mystr{
+namespace jp{
 	
 	/* Default Constructor */
 	 MyString::MyString() {}

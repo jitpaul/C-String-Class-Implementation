@@ -5,7 +5,7 @@
 #include <iostream>
 #include <cstring>
 
-namespace mystr{
+namespace jp{
 
 /*MyString Class*/
 class MyString {

@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"
-#include "mystring.h"
+#include <mystring.h>
 
 namespace {
 
@@ -28,19 +28,19 @@ class TestFixture : public ::testing::Test {
 };
 
 TEST_F(TestFixture, TestSizeTrue) {
-  mystr::MyString str = "Test";
+  jp::MyString str = "Test";
   EXPECT_EQ(str.size(), 4);
 }
 
 TEST_F(TestFixture, TestSizeFalse) {
-    mystr::MyString str = "Test";
+    jp::MyString str = "Test";
     EXPECT_NE(str.size(), 0);
 }
 
 TEST_F(TestFixture, TestConcatenation) {
-    mystr::MyString str1 = "Test";
-    mystr::MyString str2 = "String";
-    mystr::MyString str3 = str1 + str2;
+    jp::MyString str1 = "Test";
+    jp::MyString str2 = "String";
+    jp::MyString str3 = str1 + str2;
     EXPECT_EQ(str3.size(), str1.size());
 }
 
